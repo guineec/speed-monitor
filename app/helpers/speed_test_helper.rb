@@ -1,0 +1,2 @@
+module SpeedTestHelper
+end
