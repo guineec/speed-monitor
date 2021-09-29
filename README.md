@@ -1,24 +1,7 @@
-# README
+# Speed Monitor
+Monitor network speeds over time, for issue detection
+ - TODO: Optional notifiers
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Install/run
+Speed monitor uses docker/docker compose, so all that is necessary to
+run it is to install docker, clone the project and run `docker compose up`
