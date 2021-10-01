@@ -10,6 +10,9 @@ class SpeedTestWorker
     return handle_success if @status.success?
 
     handle_failure
+  rescue StandardError => e
+    handle_failure
+    raise e
   end
 
   private
@@ -28,6 +31,6 @@ class SpeedTestWorker
     Rails.logger.info("ERROR:     #{@error}")
     Rails.logger.info("EXIT CODE: #{@status.to_i}")
 
-    @speed_test.update!(status => 'failed')
+    @speed_test.update!(status: 'failed')
   end
 end

@@ -1,2 +1,28 @@
-<h1>SpeedTest#dashboard</h1>
-<p>Find me in app/views/speed_test/dashboard.html.erb</p>
+<div class="dashboard">
+  <div class="quick-metrics">
+    <% dashboard(@speed_tests).each do |metric_title, metric| %>
+      <div class="metric">
+        <span class="title"><%= titleize metric_title %></span>
+        <div class="metric-value-unit">
+          <%= metric %>
+          <span class="unit">MB/s</span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="latest-tests">
+    <h2 class="title">Latest Speed Test Results</h2>
+    <% @speed_tests.order(:created_at => :desc).first(7).each do |test| %>
+      <div class="test">
+        <span class="table-section status <%= test.status %>"><%= test.status %></span>
+        <span class="table-section ping">📶 <%= test.ping || "—" %> ms</span>
+        <span class="table-section upload">⬆️ <%= test.upload || "—" %> MB/s</span>
+        <span class="table-section download">⬇️ <%= test.download || "—" %> MB/s</span>
+      </div>
+    <% end %>
+    <div class="see-more">
+      <a href="/results">See more...</a>
+    </div>
+  </div>
+</div>

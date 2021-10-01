@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SpeedMonitor</title>
+    <title>Speed Monitor UI</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <%= stylesheet_link_tag 'global', media: 'all' %>
   </head>
 
   <body>
+    <div class="top-bar">
+      <h1>Speed Monitor</h1>
+      <ul>
+        <li><a href="/">Dashboard</a></li>
+        <li><a href="/results">Speed Test Results</a></li>
+      </ul>
+    </div>
     <%= yield %>
   </body>
 </html>

@@ -55,4 +55,4 @@ gem 'mysql2', '~> 0.5.3'
 
 gem 'sidekiq', '~> 6.2'
 
-gem "sidekiq-cron", "~> 1.2"
+gem 'sidekiq-cron', '~> 1.2'

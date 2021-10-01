@@ -1,6 +1,6 @@
 class SpeedTestController < ApplicationController
   def dashboard
-    @speed_tests = SpeedTest.where('created_at > ?', 1.month.ago)
+    @speed_tests = SpeedTest.where('created_at > ?', 1.year.ago)
   end
 
   def index

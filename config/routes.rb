@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
   get '/', to: 'speed_test#dashboard'
-  get '/all', to: 'speed_test#index'
+  get '/results', to: 'speed_test#index'
 end
