@@ -11,14 +11,15 @@
     <% end %>
   </div>
 
-  <div class="latest-tests">
+  <div class="results latest">
     <h2 class="title">Latest Speed Test Results</h2>
-    <% @speed_tests.order(:created_at => :desc).first(7).each do |test| %>
+    <% @speed_tests.first(7).each do |test| %>
       <div class="test">
         <span class="table-section status <%= test.status %>"><%= test.status %></span>
         <span class="table-section ping">📶 <%= test.ping || "—" %> ms</span>
         <span class="table-section upload">⬆️ <%= test.upload || "—" %> MB/s</span>
         <span class="table-section download">⬇️ <%= test.download || "—" %> MB/s</span>
+        <span class="table-section ago"><%= time_ago_in_words test.created_at %> ago</span>
       </div>
     <% end %>
     <div class="see-more">

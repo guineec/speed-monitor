@@ -1,2 +1,26 @@
-<h1>SpeedTest#index</h1>
-<p>Find me in app/views/speed_test/index.html.erb</p>
+<div class="results-list">
+  <div class="results index">
+    <h2 class="title">Speed Test Results</h2>
+    <% @speed_tests.each do |test| %>
+      <div class="test">
+        <span class="table-section status <%= test.status %>"><%= test.status %></span>
+        <span class="table-section ping">📶 <%= test.ping || "—" %> ms</span>
+        <span class="table-section upload">⬆️ <%= test.upload || "—" %> MB/s</span>
+        <span class="table-section download">⬇️ <%= test.download || "—" %> MB/s</span>
+        <span class="table-section ago"><%= time_ago_in_words test.created_at %> ago</span>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="pagination-container">
+  <div class="pagination">
+    <% if @offset - @limit >= 0 %>
+      <a href="/results?l=<%= @limit %>&o=<%= @offset - @limit %>">Previous</a>
+    <% end %>
+    
+    <% if @offset + @limit <= @max_records %>
+      <a href="/results?l=<%= @limit %>&o=<%= (@offset + @limit)%>">Next</a>
+    <% end %>
+  </div>
+</div>
